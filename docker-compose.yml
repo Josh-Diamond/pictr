@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  # Postgres database
+  db: # name of service
+    image: postgres # Postgres image used
+    restart: always # always restart if stops running
+    environment:
+      POSTGRES_USER: baloo
+      POSTGRES_PASSWORD: junglebook
+      POSTGRES_DB: pictr # database name
+    ports:
+      - 5432:5432 # machine:container
+
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DESIGN: dracula # theme
+
+    ports:
+      - 3333:8080
